@@ -70,11 +70,11 @@ export async function submitInquiry(data: ContactFormData, token: string) {
             console.error("Failed to send email:", err);
             console.error("Error cause:", err?.cause);
             console.error("Error stack:", err?.stack);
-            return { success: false, message: `Server Error: Failed to send email. Details: ${err?.message}` };
+            return { success: false, message: "Failed to send email. Please try again later." };
         }
     } else {
-        console.warn("RESEND_API_KEY missing. Skipping email send.");
-        return { success: false, message: "Server Error: RESEND_API_KEY is missing. Check .env.local" };
+        console.error("RESEND_API_KEY is not defined in environment variables. Email not sent.");
+        return { success: false, message: "Failed to send email. Please try again later." };
     }
 
     // 5. Return success
