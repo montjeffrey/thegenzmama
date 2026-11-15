@@ -95,7 +95,7 @@ const REVIEWS = [
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    token: process.env.SANITY_API_READ_TOKEN || process.env.SANITY_API_WRITE_TOKEN, // Needs write permission
+    token: process.env.SANITY_API_WRITE_TOKEN, // Editor-scoped; local seeding only, never set this in Netlify
     apiVersion: '2024-01-01',
     useCdn: false,
 });
@@ -103,8 +103,8 @@ const client = createClient({
 async function importData() {
     console.log('Starting migration...');
 
-    if (!process.env.SANITY_API_READ_TOKEN && !process.env.SANITY_API_WRITE_TOKEN) {
-        console.error('Error: SANITY_API_READ_TOKEN or SANITY_API_WRITE_TOKEN is missing. You need a token with write permissions.');
+    if (!process.env.SANITY_API_WRITE_TOKEN) {
+        console.error('Error: SANITY_API_WRITE_TOKEN is missing. Put a token with write permissions in .env.local (see .env.example).');
         return;
     }
 
