@@ -1,1 +1,3 @@
-
+[build.environment]
+# Major the lockfile was generated with (npm 10); keep in step with .nvmrc.
+NODE_VERSION = "22"
