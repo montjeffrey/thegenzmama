@@ -5,9 +5,11 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-image-metadata.js",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "node scripts/check-image-metadata.js && eslint",
+    "test": "node --test scripts/check-image-metadata.test.js",
     "typegen": "sanity typegen generate"
   },
   "dependencies": {
