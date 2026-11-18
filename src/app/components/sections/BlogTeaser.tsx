@@ -21,9 +21,6 @@ export default async function BlogTeaser() {
 
     return (
         <section className="py-20 bg-white relative">
-            {/* Background Accent */}
-            <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/paper-texture.png')] opacity-50 pointer-events-none"></div>
-
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-end mb-12">
                     <div>

@@ -28,9 +28,6 @@
 
   --font-hand: var(--font-patrick-hand);
   --font-sans: var(--font-quicksand);
-
-  --background-image-paper-texture: url('/assets/paper-texture.png');
-  /* Placeholder */
 }
 
 body {
