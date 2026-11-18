@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import WashiTape from "../ui/WashiTape";
 import PolaroidFrame from "../ui/PolaroidFrame";
 import TornEdge from "../ui/TornEdge";
+import DecorativeBoundary from "../canvas/DecorativeBoundary";
 
 const Scene = dynamic(() => import("../canvas/Scene"), { ssr: false });
 const Hero3D = dynamic(() => import("../canvas/Hero3D"), { ssr: false });
@@ -41,9 +42,11 @@ export default function Hero() {
         <section ref={sectionRef} className="relative min-h-[90vh] flex items-center overflow-hidden pb-24">
             {/* 3D Background Layer */}
             <div className="absolute inset-0 z-0 pointer-events-none">
-                <Scene>
-                    <Hero3D />
-                </Scene>
+                <DecorativeBoundary>
+                    <Scene>
+                        <Hero3D />
+                    </Scene>
+                </DecorativeBoundary>
             </div>
 
             <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center relative z-10">
